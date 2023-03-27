@@ -1,15 +1,22 @@
 <script>
-    export default{
-        name: "CardElement",
+export default {
+    name: "CardElement",
+    props: {
+        img: String,
+        name: String,
+        type: String
     }
+}
 </script>
 
 <template>
-    <div class="col-12">cards</div>
+    <article>
+        <img :src="img" :alt="name">
+        <p>{{ name }}</p>
+        <p>{{ type }}</p>
+    </article>
 </template>
 
 
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
