@@ -10,11 +10,14 @@ export default {
 }
 </script>
 
-<template>
+<template>  
     <main class="py-2">
         <div class="container">
+            <select name="type" id="selectType" class="mb-2">
+                <option value="">sad</option>
+            </select>
             <MainCounter />
-            <div class="row row-cols-5 gy-3">
+            <div class="row row-cols-5 mx-0">
                 <MainCards />
             </div>
 
@@ -30,7 +33,12 @@ main {
     background-color: orange;
 
     .container {
-        background-color: white;
+        select{
+            width: 150px;
+        }
+        .row {
+            background-color: white;
+        }
     }
 }
 </style>
