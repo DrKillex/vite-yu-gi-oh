@@ -16,6 +16,9 @@ export default {
   },
   methods: {
     search(){
+      if (store.cardsArchetypesSelected === 'null'){
+        store.cardsArchetypesSelected = null
+      }
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',
       {params: {
         archetype: store.cardsArchetypesSelected
