@@ -19,8 +19,8 @@ export default {
 <template>  
     <main class="py-2">
         <div class="container">
-            <select name="type" id="selectType" class="mb-2" v-model="store.cardsArchetypesSelected">
-                <option v-for="archetype in store.cardsArchetypes" :value="archetype.archetype_name" @click="$emit('search')">{{ archetype.archetype_name }}</option>
+            <select name="type" id="selectType" class="mb-2" v-model="store.cardsArchetypesSelected" @change="$emit('search')">
+                <option v-for="archetype in store.cardsArchetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
             </select>
             <MainCounter />
             <div class="row row-cols-5 mx-0">
