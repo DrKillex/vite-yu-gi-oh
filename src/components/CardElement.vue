@@ -11,16 +11,18 @@ export default {
 
 <template>
     <article>
-        <img :src="img" :alt="name">
-        <p>{{ name }}</p>
-        <p>{{ type }}</p>
+        <div>
+            <img :src="img" :alt="name">
+        </div>  
+        <div class="text-center">
+            <p class="text-white">{{ name }}</p>
+            <p>{{ type }}</p>
+        </div>      
+        
     </article>
 </template>
 
 
 
 <style lang="scss" scoped>
-img {
-    width: 10%;
-}
 </style>

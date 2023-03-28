@@ -15,20 +15,23 @@ export default {
 </script>
 
 <template>
-    <div class="col-12">
-        <div class="row">
-            <div v-for="(card, index) in store.cards" class="col-2">
-                <template v-if="index < 100">
-                    <CardElement :img="card.card_images[0].image_url" :name="card.name" :type="card.type" />
-                </template>
-                
-            </div>
-        </div>
+    <div class="col" v-for="(card, index) in store.cards.slice(0, 50)">        
+        <CardElement :img="card.card_images[0].image_url" :name="card.name.toUpperCase()" :type="card.type" />                            
     </div>
 </template>
 
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+article{
+    background-color: orange;
+    height: 100%;
+
+    :deep(img) {
+    width: 100%;
+}
+}
+
+</style>
 
 <!-- :img="card.card_images.image_url" -->

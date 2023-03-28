@@ -13,8 +13,8 @@ export default {
 <template>
     <main class="py-2">
         <div class="container">
-            <div class="row flex-column">
-                <MainCounter />
+            <MainCounter />
+            <div class="row row-cols-5 gy-3">
                 <MainCards />
             </div>
 
