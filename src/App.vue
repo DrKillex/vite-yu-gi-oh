@@ -14,12 +14,31 @@ export default {
       store
     }
   },
+  methods: {
+    search(){
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',
+      {params: {
+        archetype: store.cardsArchetypesSelected
+      }})
+
+      .then((response) => {
+        console.log(response.data.data);
+        this.store.cards = response.data.data;
+        this.store.cardsFound = response.data.data.length;
+      })      
+    }
+  },
   created() {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => {
         console.log(response.data.data);
         this.store.cards = response.data.data;
         this.store.cardsFound = response.data.data.length;
+      }),
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+      .then((response) => {
+        console.log(response.data);
+        this.store.cardsArchetypes = response.data;
       })
   }
 }
@@ -27,7 +46,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppMain @search="search"/>
 </template>
 
 <style scoped></style>

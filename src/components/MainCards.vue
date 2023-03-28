@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div class="col mb-3" v-for="(card, index) in store.cards.slice(0, 50)">        
-        <CardElement :img="card.card_images[0].image_url" :name="card.name.toUpperCase()" :type="card.type" />                            
+        <CardElement :img="card.card_images[0].image_url" :name="card.name.toUpperCase()" :type="card.archetype" />                            
     </div>
 </template>
 

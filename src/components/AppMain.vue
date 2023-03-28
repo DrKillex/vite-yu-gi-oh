@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store';
 import MainCounter from './MainCounter.vue';
 import MainCards from './MainCards.vue';
 export default {
@@ -7,14 +8,19 @@ export default {
         MainCounter,
         MainCards
     },
+    data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 
 <template>  
     <main class="py-2">
         <div class="container">
-            <select name="type" id="selectType" class="mb-2">
-                <option value="">sad</option>
+            <select name="type" id="selectType" class="mb-2" v-model="store.cardsArchetypesSelected">
+                <option v-for="archetype in store.cardsArchetypes" :value="archetype.archetype_name" @click="$emit('search')">{{ archetype.archetype_name }}</option>
             </select>
             <MainCounter />
             <div class="row row-cols-5 mx-0">
