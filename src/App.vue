@@ -15,15 +15,15 @@ export default {
     }
   },
   methods: {
+    // chiamata api per tutte le carte
     search(){
-      if (store.cardsArchetypesSelected === 'null'){
+      if (store.cardsArchetypesSelected === ''){
         store.cardsArchetypesSelected = null
       }
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',
       {params: {
         archetype: store.cardsArchetypesSelected
       }})
-
       .then((response) => {
         console.log(response.data.data);
         this.store.cards = response.data.data;
@@ -33,6 +33,7 @@ export default {
   },
   created() {
     this.search()
+    // chiamata api per gli archetipi
     axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
       .then((response) => {
         console.log(response.data);

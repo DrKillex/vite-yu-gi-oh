@@ -20,7 +20,7 @@ export default {
     <main class="py-2">
         <div class="container">
             <select name="type" id="selectType" class="mb-2" v-model="store.cardsArchetypesSelected" @change="$emit('search')">
-                <option value="null">---</option>
+                <option value="">tutti gli archetipi</option>
                 <option v-for="archetype in store.cardsArchetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
             </select>
             <MainCounter />
